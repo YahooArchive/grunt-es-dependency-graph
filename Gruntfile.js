@@ -3,8 +3,16 @@ module.exports = function (grunt) {
         clean: ['tmp/'],
         'module-graph': {
             basic: {
-                src: ['tests/assets/module1.js', 'tests/assets/module2.js'],
+                src: ['tests/assets/*.js'],
                 dest: 'tmp/graph.json'
+            }
+        },
+        mochaTest: {
+            test: {
+                options: {
+                    reporter: 'spec'
+                },
+                src: ['tests/*.js']
             }
         }
     });
@@ -13,9 +21,11 @@ module.exports = function (grunt) {
     grunt.loadTasks('tasks');
 
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-mocha-test');
 
     grunt.registerTask('test', [
         'clean',
-        'module-graph'
+        'module-graph',
+        'mochaTest'
     ]);
 };
