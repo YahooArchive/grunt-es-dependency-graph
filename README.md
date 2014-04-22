@@ -33,6 +33,22 @@ file with all the dependencies of each module specified as a task `src`.
 Task targets, files and options may be specified according to the grunt
 [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 
+Usage example
+-------------
+
+### Recommended
+
+```js
+grunt.initConfig({
+  'module-graph': {
+    production: {
+      src: ['src/*.js'],
+      dest: 'dist/dependencies.json'
+    }
+  }
+});
+```
+
 License
 -------
 
