@@ -49,6 +49,16 @@ grunt.initConfig({
 });
 ```
 
+Running this task will generate a file that looks like this:
+
+```json
+{
+    "module1": {
+        "requires": ["module2"]
+    }
+}
+```
+
 License
 -------
 
