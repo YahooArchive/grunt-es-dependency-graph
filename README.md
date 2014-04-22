@@ -1,7 +1,7 @@
-grunt-contrib-dependency-graph
-==============================
+grunt-contrib-module-graph
+==========================
 
-Grunt task to generate a JSON file with the dependency tree in ES6 module files
+Grunt task to generate a JSON file with the dependency tree in ES6 module files.
 
 Getting Started
 ---------------
