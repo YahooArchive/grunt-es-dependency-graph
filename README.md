@@ -1,4 +1,4 @@
-grunt-contrib-module-graph
+grunt-module-graph
 ==========================
 
 Grunt task to generate a JSON file with the dependency tree in ES6 module files.
@@ -14,14 +14,14 @@ install and use Grunt plugins. Once you're familiar with that process, you may
 install this plugin with this command:
 
 ```shell
-npm install grunt-contrib-module-graph --save-dev
+npm install grunt-module-graph --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with
 this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-contrib-module-graph');
+grunt.loadNpmTasks('grunt-module-graph');
 ```
 
 The module graph task
