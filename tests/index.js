@@ -4,9 +4,9 @@ var expect = require('chai').expect,
 
 describe('Grunt task', function () {
     it('should work', function () {
-        console.log(path.join(__dirname, 'tmp/graph.json'));
-        var result = fs.readFileSync(path.join(__dirname, '../tmp/graph.json'), 'utf8');
-        result = JSON.parse(result);
+        var result = JSON.parse(
+            fs.readFileSync(path.join(__dirname, '../tmp/graph.json'),
+                {encoding: 'utf8'}));
         expect(result).to.deep.equal({
             module1: {
                 requires: ['bar']
