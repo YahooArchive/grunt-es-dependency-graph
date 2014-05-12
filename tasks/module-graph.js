@@ -28,13 +28,11 @@ module.exports = function (grunt) {
           return grunt.file.exists(filepath);
         });
 
-        sources = hash(sources.map(function (filepath) {
+        result = JSON.stringify(hash(sources.map(function (filepath) {
           return path.basename(filepath, '.js');
         }), sources.map(function (filepath) {
-          return grunt.file.read(filepath);
-        }));
-
-        result = JSON.stringify(graph(sources));
+          return graph(grunt.file.read(filepath));
+        })));
 
         toArray(file.dest).forEach(function (filepath) {
           grunt.file.write(filepath, result);
