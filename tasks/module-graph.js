@@ -21,6 +21,9 @@ function hash(a, b) {
 module.exports = function (grunt) {
   grunt.registerMultiTask('module-graph', 'Generate a dependency graph',
     function () {
+      var options = this.options({
+        includeBindings: false
+      });
       this.files.forEach(function (file) {
         var sources, result;
 
@@ -31,7 +34,9 @@ module.exports = function (grunt) {
         result = JSON.stringify(hash(sources.map(function (filepath) {
           return path.basename(filepath, '.js');
         }), sources.map(function (filepath) {
-          return graph(grunt.file.read(filepath));
+          return graph(grunt.file.read(filepath), {
+            includeBindings: options.includeBindings
+          });
         })));
 
         toArray(file.dest).forEach(function (filepath) {
