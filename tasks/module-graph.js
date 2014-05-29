@@ -39,9 +39,7 @@ module.exports = function (grunt) {
         result = JSON.stringify(hash(sources.map(function (filepath) {
           return path.basename(filepath, '.js');
         }), sources.map(function (filepath) {
-          return graph(grunt.file.read(filepath), {
-            includeBindings: options.includeBindings
-          });
+          return graph(grunt.file.read(filepath), options);
         })));
 
         toArray(file.dest).forEach(function (filepath) {
