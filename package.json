@@ -1,9 +1,30 @@
 {
     "name": "grunt-module-graph",
+    "description": "Grunt task for obtaining the dependency graph from ES6 modules",
     "version": "0.0.1",
-    "private": true,
+    "author": "Juan Dopazo <jdopazo@yahoo-inc.com> (http://github.com/juandopazo)",
+    "keywords": [
+        "grunt",
+        "ecmascript",
+        "es6",
+        "AST",
+        "dependency",
+        "dependencies",
+        "analizer"
+    ],
+    "repository": {
+        "type": "git",
+        "url" : "git://github.com/juandopazo/grunt-module-graph.git"
+    },
+    "bugs": {
+        "url": "https://github.com/juandopazo/grunt-module-graph/issues"
+    },
+    "engines": {
+        "node": ">=0.10.x"
+    },
+    "main": "tasks/module-graph.js",
     "dependencies": {
-        "module-graph": "^0.4.0"
+        "module-graph": "^0.1.0"
     },
     "devDependencies": {
         "grunt": "~0.4.0",
