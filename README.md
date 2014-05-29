@@ -1,5 +1,9 @@
 grunt-module-graph
-==========================
+==================
+
+[![Build Status](https://travis-ci.org/juandopazo/grunt-module-graph.svg?branch=master)](https://travis-ci.org/juandopazo/grunt-module-graph)
+[![Dependency Status](https://gemnasium.com/juandopazo/grunt-module-graph.svg)](https://gemnasium.com/juandopazo/grunt-module-graph)
+[![NPM version](https://badge.fury.io/js/grunt-module-graph.svg)](http://badge.fury.io/js/grunt-module-graph)
 
 Grunt task to generate a JSON file with the dependency tree in ES6 module files.
 
