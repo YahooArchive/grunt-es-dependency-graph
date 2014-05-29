@@ -62,4 +62,14 @@ Running this task will generate a file that looks like this:
 License
 -------
 
-Yahoo BSD.
+This software is free to use under the Yahoo Inc. BSD license.
+See the [LICENSE file][] for license text and copyright information.
+
+Contribute
+----------
+
+See the [CONTRIBUTING file][] for info.
+
+
+[CONTRIBUTING file]: https://github.com/juandopazo/grunt-module-graph/blob/master/CONTRIBUTING.md
+[LICENSE file]: https://github.com/juandopazo/grunt-module-graph/blob/master/LICENSE.md
