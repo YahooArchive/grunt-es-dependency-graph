@@ -1,3 +1,8 @@
+/*
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/juandopazo/grunt-module-graph/blob/master/LICENSE.md
+*/
 var expect = require('chai').expect,
     fs     = require('fs'),
     path   = require('path');
