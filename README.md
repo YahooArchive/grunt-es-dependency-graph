@@ -53,7 +53,39 @@ Running this task will generate a file that looks like this:
 
 ```json
 {
-    "module1": ["module2"]
+  "module1": ["module2"]
+}
+```
+
+### Including named imports/exports
+
+Alternatively you can get more information from all you source files by using
+the `includeBindings` option:
+
+```js
+grunt.initConfig({
+  'module-graph': {
+    production: {
+      options: {
+        includeBindings: true
+      },
+      src: ['src/*.js'],
+      dest: 'dist/dependencies.json'
+    }
+  }
+});
+```
+
+Chosing this option will generate an output file similar to:
+
+```json
+{
+  "module1": {
+    "imports": {
+      "module2": ["someImport", "anotherImport"]
+    },
+    "exports": ["somethingExported"]
+  }
 }
 ```
 
