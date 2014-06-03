@@ -3,6 +3,7 @@
     "description": "Grunt task for obtaining the dependency graph from ES6 modules",
     "version": "0.0.1",
     "author": "Juan Dopazo <jdopazo@yahoo-inc.com> (http://github.com/juandopazo)",
+    "license": "BSD-3-Clause",
     "keywords": [
         "grunt",
         "ecmascript",
@@ -31,7 +32,8 @@
         "grunt-cli": "~0.1.13",
         "grunt-contrib-clean": "~0.5.0",
         "grunt-mocha-test": "~0.10.2",
-        "chai": "~1.9.1"
+        "chai": "~1.9.1",
+        "xunit-file": "*"
     },
     "peerDependencies": {
         "grunt": "~0.4.0"
