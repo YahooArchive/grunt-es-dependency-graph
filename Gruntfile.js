@@ -39,12 +39,6 @@ module.exports = function (grunt) {
     grunt.registerTask('test', [
         'clean',
         'module-graph',
-        'mochaTest:test'
-    ]);
-
-    grunt.registerTask('testsd', [
-        'clean',
-        'module-graph',
-        'mochaTest:sd'
+        'mochaTest'
     ]);
 };
