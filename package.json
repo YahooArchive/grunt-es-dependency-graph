@@ -1,7 +1,7 @@
 {
     "name": "grunt-module-graph",
     "description": "Grunt task for obtaining the dependency graph from ES6 modules",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "Juan Dopazo <jdopazo@yahoo-inc.com> (http://github.com/juandopazo)",
     "license": "BSD-3-Clause",
     "keywords": [
