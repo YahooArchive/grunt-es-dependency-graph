@@ -20,6 +20,12 @@ module.exports = function (grunt) {
                     reporter: 'spec'
                 },
                 src: ['tests/*.js']
+            },
+            sd: {
+                options: {
+                    reporter: 'xunit'
+                },
+                src: ['tests/*.js']
             }
         }
     });
@@ -33,6 +39,12 @@ module.exports = function (grunt) {
     grunt.registerTask('test', [
         'clean',
         'module-graph',
-        'mochaTest'
+        'mochaTest:test'
+    ]);
+
+    grunt.registerTask('testsd', [
+        'clean',
+        'module-graph',
+        'mochaTest:sd'
     ]);
 };
