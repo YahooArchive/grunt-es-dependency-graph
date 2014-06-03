@@ -20,6 +20,12 @@ module.exports = function (grunt) {
                     reporter: 'spec'
                 },
                 src: ['tests/*.js']
+            },
+            sd: {
+                options: {
+                    reporter: 'xunit'
+                },
+                src: ['tests/*.js']
             }
         }
     });
