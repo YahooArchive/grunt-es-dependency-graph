@@ -1,7 +1,7 @@
 {
-    "module1": ["bar"],
-    "module2": ["module1"],
-    "module3": ["./module1", "./component1/module4"],
-    "module4": ["../component2/module5"],
-    "module5": []
+    "tests/compare/sources/module1.js": ["bar"],
+    "tests/compare/sources/module2.js": ["module1"],
+    "tests/compare/sources/module3.js": ["./module1", "./component1/module4"],
+    "tests/compare/sources/component1/module4.js": ["../component2/module5"],
+    "tests/compare/sources/component2/module5.js": []
 }

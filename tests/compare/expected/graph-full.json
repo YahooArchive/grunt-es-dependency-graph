@@ -1,30 +1,30 @@
 {
-    "module1": {
+    "tests/compare/sources/module1.js": {
         "imports": {
             "bar": ["default"]
         },
         "exports": ["foo"]
     },
-    "module2": {
+    "tests/compare/sources/module2.js": {
         "imports": {
             "module1": ["default"]
         },
         "exports": []
     },
-    "module3": {
+    "tests/compare/sources/module3.js": {
         "imports": {
             "./module1": ["foo"],
             "./component1/module4": ["msg"]
         },
         "exports": ["answer"]
     },
-    "module4": {
+    "tests/compare/sources/component1/module4.js": {
         "imports": {
             "../component2/module5": ["msg"]
         },
         "exports": ["hello", "msg"]
     },
-    "module5": {
+    "tests/compare/sources/component2/module5.js": {
         "imports": {
         },
         "exports": ["msg"]

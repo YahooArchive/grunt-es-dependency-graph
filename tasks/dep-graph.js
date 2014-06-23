@@ -3,48 +3,48 @@ Copyright 2014 Yahoo! Inc. All rights reserved.
 Licensed under the BSD License.
 https://github.com/juandopazo/grunt-module-graph/blob/master/LICENSE.md
 */
-var graph = require('module-graph'),
-    path  = require('path');
-
-function toArray(arr) {
-  if (!Array.isArray(arr)) {
-    arr = [arr];
-  }
-  return arr;
-}
-
-function hash(a, b) {
-  var result = {}, i, length = a.length;
-
-  for (i = 0; i < length; i++) {
-    result[a[i]] = b[i];
-  }
-
-  return result;
-}
+var depGraph = require('es-dependency-graph'),
+    path     = require('path');
 
 module.exports = function (grunt) {
-  grunt.registerMultiTask('module-graph', 'Generate a dependency graph',
-    function () {
-      var options = this.options({
-        includeBindings: false
-      });
-      this.files.forEach(function (file) {
-        var sources, result;
+    var exists = function (file) {
+        return grunt.file.exists(file);
+    };
 
-        sources = file.src.filter(function (filepath) {
-          return grunt.file.exists(filepath);
+    grunt.registerMultiTask('depGraph', 'Generate a dependency graph', function () {
+        var options = this.options({
+                includeBindings: false
+            }),
+            normalize = options.moduleName;
+
+        this.files.forEach(function (file) {
+            var result = {};
+
+            file.src
+                .filter(exists)
+                .forEach(function (filepath) {
+                    var currDir = path.dirname(filepath),
+                        deps    = depGraph(grunt.file.read(filepath), options),
+                        imports;
+
+                    if (normalize) {
+                        if (options.includeBindings) {
+                            imports = deps.imports;
+                            deps.imports = {};
+                            Object.keys(imports).forEach(function (modName) {
+                                deps.imports[normalize(modName, currDir)] =
+                                    imports[modName];
+                            });
+                        }
+                        filepath = normalize(filepath, currDir);
+                    }
+
+                    result[filepath] = deps;
+                });
+
+            result = JSON.stringify(result);
+
+            grunt.file.write(file.dest, result);
         });
-
-        result = JSON.stringify(hash(sources.map(function (filepath) {
-          return path.basename(filepath, '.js');
-        }), sources.map(function (filepath) {
-          return graph(grunt.file.read(filepath), options);
-        })));
-
-        toArray(file.dest).forEach(function (filepath) {
-          grunt.file.write(filepath, result);
-        });
-      });
     });
 };

@@ -1,5 +1,5 @@
 {
-    "name": "grunt-module-graph",
+    "name": "grunt-es-dependency-graph",
     "description": "Grunt task for obtaining the dependency graph from ES6 modules",
     "version": "0.0.3",
     "author": "Juan Dopazo <jdopazo@yahoo-inc.com> (http://github.com/juandopazo)",
@@ -15,17 +15,17 @@
     ],
     "repository": {
         "type": "git",
-        "url" : "git://github.com/juandopazo/grunt-module-graph.git"
+        "url" : "git://github.com/yahoo/grunt-es-dependency-graph.git"
     },
     "bugs": {
-        "url": "https://github.com/juandopazo/grunt-module-graph/issues"
+        "url": "https://github.com/yahoo/grunt-es-dependency-graph/issues"
     },
     "engines": {
         "node": ">=0.10.x"
     },
-    "main": "tasks/module-graph.js",
+    "main": "tasks/dep-graph.js",
     "dependencies": {
-        "module-graph": "^0.1.0"
+        "es-dependency-graph": "^0.1.0"
     },
     "devDependencies": {
         "grunt": "~0.4.0",

@@ -1,7 +1,9 @@
+var path = require('path');
+
 module.exports = function (grunt) {
     grunt.initConfig({
         clean: ['tests/compare/actual/'],
-        'module-graph': {
+        depGraph: {
             simple: {
                 src: ['tests/compare/sources/**/*.js'],
                 dest: 'tests/compare/actual/graph-simple.json'
@@ -15,7 +17,10 @@ module.exports = function (grunt) {
             },
             normalized: {
                 options: {
-                    includeBindings: true
+                    includeBindings: true,
+                    moduleName: function (name) {
+                        return path.basename(name, '.js');
+                    }
                 },
                 src: ['tests/compare/sources/**/*.js'],
                 dest: 'tests/compare/actual/graph-normalized.json'
@@ -43,9 +48,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-mocha-test');
 
-    grunt.registerTask('test', [
-        'clean',
-        'module-graph',
-        'mochaTest'
-    ]);
+    grunt.registerTask('build', ['clean', 'depGraph']);
+    grunt.registerTask('test', ['build', 'mochaTest']);
+    grunt.registerTask('default', ['build']);
 };
