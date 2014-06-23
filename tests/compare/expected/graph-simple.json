@@ -1,0 +1,7 @@
+{
+    "module1": ["bar"],
+    "module2": ["module1"],
+    "module3": ["./module1", "./component1/module4"],
+    "module4": ["../component2/module5"],
+    "module5": []
+}

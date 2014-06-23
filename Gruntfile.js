@@ -1,17 +1,24 @@
 module.exports = function (grunt) {
     grunt.initConfig({
-        clean: ['tmp/'],
+        clean: ['tests/compare/actual/'],
         'module-graph': {
             simple: {
-                src: ['tests/assets/*.js'],
-                dest: 'tmp/graph-simple.json'
+                src: ['tests/compare/sources/**/*.js'],
+                dest: 'tests/compare/actual/graph-simple.json'
             },
             full: {
                 options: {
                     includeBindings: true
                 },
-                src: ['tests/assets/*.js'],
-                dest: 'tmp/graph-full.json'
+                src: ['tests/compare/sources/**/*.js'],
+                dest: 'tests/compare/actual/graph-full.json'
+            },
+            normalized: {
+                options: {
+                    includeBindings: true
+                },
+                src: ['tests/compare/sources/**/*.js'],
+                dest: 'tests/compare/actual/graph-normalized.json'
             }
         },
         mochaTest: {

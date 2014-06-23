@@ -1,0 +1,32 @@
+{
+    "module1": {
+        "imports": {
+            "bar": ["default"]
+        },
+        "exports": ["foo"]
+    },
+    "module2": {
+        "imports": {
+            "module1": ["default"]
+        },
+        "exports": []
+    },
+    "module3": {
+        "imports": {
+            "./module1": ["foo"],
+            "./component1/module4": ["msg"]
+        },
+        "exports": ["answer"]
+    },
+    "module4": {
+        "imports": {
+            "../component2/module5": ["msg"]
+        },
+        "exports": ["hello", "msg"]
+    },
+    "module5": {
+        "imports": {
+        },
+        "exports": ["msg"]
+    }
+}

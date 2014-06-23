@@ -7,37 +7,23 @@ var expect = require('chai').expect,
     fs     = require('fs'),
     path   = require('path');
 
+function read(file) {
+    return JSON.parse(fs.readFileSync(path.join(__dirname, 'compare/', file), 'utf8'));
+}
+
 describe('Grunt task', function () {
-    describe('with includeBindings set to `false`', function () {
-        it('should create the correct JSON file', function () {
-            var result = JSON.parse(
-                fs.readFileSync(path.join(__dirname, '../tmp/graph-simple.json'), 'utf8'));
-
-            expect(result).to.deep.equal({
-                module1: ['bar'],
-                module2: ['module1']
-            });
+    describe('generates expected output', function () {
+        specify('with includeBindings set to `false`', function () {
+            expect(read('actual/graph-simple.json'))
+                .to.deep.equal(read('expected/graph-simple.json'));
         });
-    });
-    describe('with includeBindings set to `true`', function () {
-        it('should create the correct JSON file', function () {
-            var result = JSON.parse(
-                fs.readFileSync(path.join(__dirname, '../tmp/graph-full.json'), 'utf8'));
-
-            expect(result).to.deep.equal({
-                module1: {
-                    imports: {
-                        bar: ['default']
-                    },
-                    exports: ['foo']
-                },
-                module2: {
-                    imports: {
-                        module1: ['default']
-                    },
-                    exports: []
-                }
-            });
+        specify('with includeBindings set to `true`', function () {
+            expect(read('actual/graph-full.json'))
+                .to.deep.equal(read('expected/graph-full.json'));
+        });
+        specify('with includeBindings set to `true` and normalized', function () {
+            expect(read('actual/graph-normalized.json'))
+                .to.deep.equal(read('expected/graph-normalized.json'));
         });
     });
 });
