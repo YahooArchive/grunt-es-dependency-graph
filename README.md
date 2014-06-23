@@ -1,9 +1,9 @@
 grunt-module-graph
 ==================
 
-[![Build Status](https://travis-ci.org/juandopazo/grunt-module-graph.svg?branch=master)](https://travis-ci.org/juandopazo/grunt-module-graph)
-[![Dependency Status](https://gemnasium.com/juandopazo/grunt-module-graph.svg)](https://gemnasium.com/juandopazo/grunt-module-graph)
-[![NPM version](https://badge.fury.io/js/grunt-module-graph.svg)](http://badge.fury.io/js/grunt-module-graph)
+[![Build Status](https://travis-ci.org/yahoo/grunt-es-dependency-graph.svg?branch=master)](https://travis-ci.org/yahoo/grunt-es-dependency-graph)
+[![Dependency Status](https://gemnasium.com/yahoo/grunt-es-dependency-graph.svg)](https://gemnasium.com/yahoo/grunt-es-dependency-graph)
+[![NPM version](https://badge.fury.io/js/grunt-es-dependency-graph.svg)](http://badge.fury.io/js/grunt-es-dependency-graph)
 
 Grunt task to generate a JSON file with the dependency tree in ES6 module files.
 
@@ -18,20 +18,20 @@ install and use Grunt plugins. Once you're familiar with that process, you may
 install this plugin with this command:
 
 ```shell
-npm install grunt-module-graph --save-dev
+npm install grunt-es-dependency-graph --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with
 this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-module-graph');
+grunt.loadNpmTasks('grunt-es-dependency-graph');
 ```
 
 The module graph task
 ---------------------
 
-Run this task with the `grunt module-graph` command. This will generate a JSON
+Run this task with the `grunt depGraph` command. This will generate a JSON
 file with all the dependencies of each module specified as a task `src`.
 
 Task targets, files and options may be specified according to the grunt
@@ -44,7 +44,7 @@ Usage example
 
 ```js
 grunt.initConfig({
-  'module-graph': {
+  depGraph: {
     production: {
       src: ['src/*.js'],
       dest: 'dist/dependencies.json'
@@ -68,7 +68,7 @@ the `includeBindings` option:
 
 ```js
 grunt.initConfig({
-  'module-graph': {
+  depGraph: {
     production: {
       options: {
         includeBindings: true
@@ -105,5 +105,5 @@ Contribute
 See the [CONTRIBUTING file][] for info.
 
 
-[CONTRIBUTING file]: https://github.com/juandopazo/grunt-module-graph/blob/master/CONTRIBUTING.md
-[LICENSE file]: https://github.com/juandopazo/grunt-module-graph/blob/master/LICENSE.md
+[CONTRIBUTING file]: https://github.com/yahoo/grunt-es-dependency-graph/blob/master/CONTRIBUTING.md
+[LICENSE file]: https://github.com/yahoo/grunt-module-graph/blob/master/LICENSE.md
