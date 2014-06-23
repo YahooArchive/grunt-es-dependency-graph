@@ -57,7 +57,7 @@ Running this task will generate a file that looks like this:
 
 ```json
 {
-  "module1": ["module2"]
+  "module1.js": ["module2"]
 }
 ```
 
@@ -84,13 +84,34 @@ Chosing this option will generate an output file similar to:
 
 ```json
 {
-  "module1": {
+  "module1.js": {
     "imports": {
       "module2": ["someImport", "anotherImport"]
     },
     "exports": ["somethingExported"]
   }
 }
+```
+
+### Normalizing module names
+
+By default module names are left as they were in the source code and top level keys are the paths to each module file. However, this is not desirable for many tools that depend on this information. The `moduleName` option allows you to normalize those names to whatever pattern works in your project. It receives two parameters: the current path and the path to the parent module in the case of an import. Example:
+
+```js
+grunt.initConfig({
+  depGraph: {
+    production: {
+      options: {
+        includeBindings: true,
+        moduleName: function (importPath, modulePath) {
+          return path.join(path.dirname(modulePath), importPath);
+        }
+      },
+      src: ['src/*.js'],
+      dest: 'dist/dependencies.json'
+    }
+  }
+});
 ```
 
 License
