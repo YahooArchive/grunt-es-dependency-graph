@@ -1,5 +1,5 @@
-grunt-module-graph
-==================
+grunt-es-dependency-graph
+=========================
 
 [![Build Status](https://travis-ci.org/yahoo/grunt-es-dependency-graph.svg?branch=master)](https://travis-ci.org/yahoo/grunt-es-dependency-graph)
 [![Dependency Status](https://gemnasium.com/yahoo/grunt-es-dependency-graph.svg)](https://gemnasium.com/yahoo/grunt-es-dependency-graph)
@@ -127,4 +127,4 @@ See the [CONTRIBUTING file][] for info.
 
 
 [CONTRIBUTING file]: https://github.com/yahoo/grunt-es-dependency-graph/blob/master/CONTRIBUTING.md
-[LICENSE file]: https://github.com/yahoo/grunt-module-graph/blob/master/LICENSE.md
+[LICENSE file]: https://github.com/yahoo/grunt-es-dependency-graph/blob/master/LICENSE.md
