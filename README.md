@@ -28,8 +28,8 @@ this line of JavaScript:
 grunt.loadNpmTasks('grunt-es-dependency-graph');
 ```
 
-The module graph task
----------------------
+The depGraph task
+-----------------
 
 Run this task with the `grunt depGraph` command. This will generate a JSON
 file with all the dependencies of each module specified as a task `src`.
